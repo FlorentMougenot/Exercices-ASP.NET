@@ -1,0 +1,17 @@
+﻿@model Contact
+@{
+    ViewData["Title"] = "Affichage d'un contact";
+    Contact contact = Model;
+}
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+        <h5 class="card-title">@contact.Prenom @contact.Nom</h5>
+    </div>
+    <ul class="list-group list-group-flush">
+        <li class="list-group-item">Email : @contact.Email</li>
+        <li class="list-group-item">Téléphone : @contact.Telephone</li>
+    </ul>
+    <div class="card-body">
+        <a href="#" class="card-link">Retour à la liste</a>
+    </div>
+</div>

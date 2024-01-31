@@ -1,0 +1,36 @@
+﻿@model List<Platypus>
+
+
+@{
+    ViewData["Title"] = "Liste des Ornithorynques connus";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">@Html.DisplayNameForInnerType((Platypus p) => p.Name)</th>
+            <th scope="col">@Html.DisplayNameForInnerType((Platypus c) => c.Size)</th>
+            <th scope="col">@Html.DisplayNameForInnerType((Platypus c) => c.Weight)</th>
+            <th scope="col">@Html.DisplayNameForInnerType((Platypus c) => c.CanSwim)</th>
+            <th scope="col">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Platypus p in Model)
+        {
+            <tr>
+                <th scope="row">@p.Id</th>
+                <td>@p.Name</td>
+                <td>@p.Size</td>
+                <td>@p.Weight</td>
+                <td>@p.CanSwim</td>
+                <td>
+                    <a class="btn btn-outline-info" asp-action="Details" asp-route-id="@p.Id">Détails</a>
+                    <a class="btn btn-outline-danger" asp-action="Delete" asp-route-id="@p.Id">Supprimer</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

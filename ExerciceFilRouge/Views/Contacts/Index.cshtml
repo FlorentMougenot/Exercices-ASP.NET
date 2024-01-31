@@ -1,0 +1,39 @@
+﻿@* @model List<ExerciceFilRouge.Models.Contact> *@
+    @model List<Contact>
+
+@{
+    ViewData["Title"] = "Liste des contacts";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (Model != null && Model.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Prénom</th>
+                <th scope="col">Nom</th>
+                <th scope="col">Email</th>
+                <th scope="col">N° de téléphone</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Contact c in Model)
+            {
+                <tr>
+                    <th scope="row">@c.Id</th>
+                    <td>@c.Nom</td>
+                    <td>@c.Prenom</td>
+                    <td>@c.Email</td>
+                    <td>@c.Telephone</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>Aucun contact enregistré.</p>
+}

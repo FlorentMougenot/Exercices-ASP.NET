@@ -1,0 +1,41 @@
+﻿@{
+    ViewData["Title"] = "Ajout d'un contact";
+}
+
+<h2>@ViewData["Title"]</h2>
+<br />
+<br />
+
+<style>
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"] {
+        width: 70%;
+        background-color: #e6f7ff;
+        border: 1px solid #b3d7ff;
+        padding: 8px;
+        margin-bottom: 10px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+<form method="post" action="/Contacts/Add" class="mx-auto text-center">
+    <div class="form-group">
+        <label for="nom">Nom :</label>
+        <input type="text" id="nom" name="nom" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="prenom">Prénom :</label>
+        <input type="text" id="prenom" name="prenom" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="email">Email :</label>
+        <input type="email" id="email" name="email" class="form-control" required />
+    </div>
+    <div class="form-group">
+        <label for="telephone">Téléphone :</label>
+        <input type="tel" id="telephone" name="telephone" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary">Ajouter</button>
+</form>

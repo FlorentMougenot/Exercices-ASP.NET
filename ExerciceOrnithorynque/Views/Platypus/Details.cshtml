@@ -1,0 +1,29 @@
+﻿@model Platypus
+@{
+    ViewData["Title"] = "Informations concernant l'ornithorynque souhaité";
+
+    Platypus platypus = Model;
+}
+
+@if (platypus != null)
+{
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+            <h5 class="card-title">@platypus.Name</h5>
+        </div>
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item">@Html.DisplayNameFor(m => m.Size) : @platypus.Size</li>
+            <li class="list-group-item">@Html.DisplayNameFor(m => m.Weight) : @platypus.Weight</li>
+            <li class="list-group-item">@Html.DisplayNameFor(m => m.CanSwim) : @platypus.CanSwim</li>
+        </ul>
+        <div class="card-body">
+            <a asp-action="Index" class="card-link">Retour à la liste</a>
+        </div>
+    </div>
+}
+else
+{
+    <p class="text-danger">
+        Ornithorynque non trouvé !
+    </p>
+}
