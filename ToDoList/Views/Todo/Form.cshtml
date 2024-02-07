@@ -1,0 +1,20 @@
+﻿@model Todo
+@{
+    bool isUpdate = Model != null;
+    ViewData["Title"] = (isUpdate ? "Modifier" : "Ajouter") + " une tâche";
+}
+
+<h1>@(isUpdate ? "Modifier" : "Ajouter")</h1>
+
+<form asp-action="SubmitTodo">
+    <input asp-for="Id" type="hidden" class="form-control">
+    <div class="mb-3">
+        <label asp-for="Title" class="form-label"></label>
+        <input asp-for="Title" type="text" class="form-control">
+    </div>
+    <div class="mb-3">
+        <label asp-for="Description" class="form-label"></label>
+        <input asp-for="Description" type="text" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>

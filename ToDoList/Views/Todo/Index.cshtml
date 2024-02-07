@@ -1,0 +1,49 @@
+﻿@model List<Todo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<p>
+    <a asp-action="Form" class="btn btn-info">Create New</a>
+    <a asp-action="CreateRandom" class="btn btn-secondary">Create New Random</a>
+</p>
+<h2>Liste des @Model.Count todos</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameForInnerType((Todo model) => model.Id)
+            </th>
+            <th>
+                @Html.DisplayNameForInnerType((Todo model) => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameForInnerType((Todo model) => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var p in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => p.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => p.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => p.Description)
+                </td>
+                <td>
+                    <a class="btn btn-primary" asp-action="Details" asp-route-id="@p.Id">Détails de la tâche</a>
+                    <a class="btn btn-warning" asp-action="Form" asp-route-id="@p.Id">Modifier la tâche</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-id="@p.Id">Supprimer la tâche</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
